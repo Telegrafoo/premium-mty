@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Premium MTY</title>
+<meta name="description" content="Las gasolineras con la Premium más barata de Monterrey y su área metropolitana, con datos oficiales actualizados cada día.">
+<meta name="theme-color" content="#f2f2f7">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23007aff'/%3E%3Cpath d='M10 24V9h8a4 4 0 0 1 0 8h-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="map" class="map" aria-label="Mapa de gasolineras"></div>
+
+<div class="map-controls" id="map-controls">
+  <div class="ctl-group">
+    <button type="button" id="zoom-in" aria-label="Acercar">+</button>
+    <button type="button" id="zoom-out" aria-label="Alejar">−</button>
+  </div>
+  <div class="ctl-group">
+    <button type="button" id="locate-btn" aria-label="Mi ubicación"></button>
+  </div>
+</div>
+
+<aside class="panel" id="panel" data-detent="half" aria-label="Gasolineras">
+  <div class="grabber" id="grabber" aria-hidden="true"><span></span></div>
+  <div class="panel-head" id="panel-head">
+    <div class="search-row">
+      <label class="search">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="Buscar gasolinera o permiso" autocomplete="off" aria-label="Buscar gasolinera">
+      </label>
+      <button type="button" class="round-btn" id="settings-btn" aria-label="Ajustes">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 2.5v2.2M10 15.3v2.2M2.5 10h2.2M15.3 10h2.2M4.7 4.7l1.6 1.6M13.7 13.7l1.6 1.6M4.7 15.3l1.6-1.6M13.7 6.3l1.6-1.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="segmented" id="tabs" role="tablist" aria-label="Secciones">
+      <button type="button" role="tab" data-tab="hoy">Más baratas</button>
+      <button type="button" role="tab" data-tab="cerca">Cerca de mí</button>
+      <button type="button" role="tab" data-tab="tendencia">Tendencia</button>
+    </div>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
